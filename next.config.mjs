@@ -6,20 +6,40 @@ const __dirname = path.dirname(__filename);
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  poweredByHeader: false,
   turbopack: {
     root: __dirname,
   },
-  async rewrites() {
-    return {
-      beforeFiles: [
-        { source: "/", destination: "/index.html" },
-        { source: "/about", destination: "/about.html" },
-        { source: "/contact", destination: "/contact.html" },
-        { source: "/blog", destination: "/blog.html" },
-        { source: "/blog-page", destination: "/blog-page.html" },
-        { source: "/shop", destination: "/shop.html" },
-      ],
-    };
+  async headers() {
+    return [
+      {
+        source: "/assets/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/css/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=604800, stale-while-revalidate=86400",
+          },
+        ],
+      },
+      {
+        source: "/js/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=604800, stale-while-revalidate=86400",
+          },
+        ],
+      },
+    ];
   },
 };
 

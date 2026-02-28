@@ -1,6 +1,6 @@
 # Culture Hill
 
-Next.js-based standard project setup for the Culture Hill website, while keeping the original static HTML/CSS/JS output and styling.
+Culture Hill now runs on real Next.js App Router routes while preserving the existing legacy HTML/CSS/JS content and design.
 
 ## Run locally
 
@@ -18,21 +18,31 @@ Open `http://localhost:3000`.
 - `npm run start`: Run production server
 - `npm run lint`: Lint project
 
-## Project structure
+## Structure
 
-- `app/`: Minimal Next.js app shell
-- `public/`: Existing site pages and static assets
+- `app/`: Next.js route files (`/`, `/about`, `/contact`, `/blog`, `/blog-page`, `/shop`)
+- `app/blog/[id]/page.js`: Clean blog permalink route (redirects to `/blog-page?id=:id`)
+- `components/LegacyPage.jsx`: Shared renderer for legacy page markup + assets
+- `lib/legacy-pages.js`: Legacy page loader/parser and route metadata config
+- `public/`: Legacy HTML source pages + static assets
 - `public/assets/`: Images and icons
 - `public/css/`: Legacy page styles
 - `public/js/`: Legacy page scripts
 
-## Routes
+## Routing
 
-Clean routes are mapped to static pages through `next.config.mjs` rewrites:
+The app now uses native App Router pages instead of rewrite-only routing:
 
-- `/` -> `public/index.html`
-- `/about` -> `public/about.html`
-- `/contact` -> `public/contact.html`
-- `/blog` -> `public/blog.html`
-- `/blog-page` -> `public/blog-page.html`
-- `/shop` -> `public/shop.html`
+- `/`
+- `/about`
+- `/contact`
+- `/blog`
+- `/blog/:id`
+- `/blog-page?id=:id`
+- `/shop`
+
+## Optimization updates
+
+- Added static asset cache headers in `next.config.mjs`
+- Fixed legacy script runtime errors and broken page connections
+- Added lazy image loading/async decoding during legacy markup rendering

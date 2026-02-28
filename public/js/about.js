@@ -39,4 +39,18 @@ function highlightActiveLink() {
   });
 }
 
-window.addEventListener("DOMContentLoaded", highlightActiveLink);
+function setupContactButton() {
+  const button = document.querySelector(".contact-btn .btn");
+  if (!button) {
+    return;
+  }
+
+  button.addEventListener("click", () => {
+    window.location.href = "/contact";
+  });
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  highlightActiveLink();
+  setupContactButton();
+});

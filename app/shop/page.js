@@ -1,7 +1,7 @@
-import LegacyPage from "../components/LegacyPage";
-import { getLegacyPage, getLegacyPageConfig } from "../lib/legacy-pages";
+import LegacyPage from "../../components/LegacyPage";
+import { getLegacyPage, getLegacyPageConfig } from "../../lib/legacy-pages";
 
-const pageConfig = getLegacyPageConfig("home");
+const pageConfig = getLegacyPageConfig("shop");
 
 export const dynamic = "force-static";
 
@@ -10,8 +10,8 @@ export const metadata = {
   description: pageConfig.description,
 };
 
-export default async function HomePage() {
-  const page = await getLegacyPage("home");
+export default async function ShopPage() {
+  const page = await getLegacyPage("shop");
 
   return (
     <LegacyPage
