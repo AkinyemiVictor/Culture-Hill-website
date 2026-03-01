@@ -450,6 +450,15 @@ body header #margin #logo #logoText h1 {
   height: 58.5rem;
   object-fit: cover;
 }
+.home-billboard {
+  height: 48rem;
+}
+.home-billboard .slide img {
+  height: 48rem;
+}
+.home-billboard .slide:first-child {
+  opacity: 1;
+}
 .overlay {
   position: absolute;
   top: 0;
@@ -540,12 +549,46 @@ body header #margin #logo #logoText h1 {
 .dot.active {
   background-color: #6a3f2c;
 }
+.home-billboard .dot-navigation {
+  bottom: 1.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 0.6rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(16, 28, 18, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+}
+.home-billboard .dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background-color: rgba(255, 255, 255, 0.58);
+}
+.home-billboard .dot:hover {
+  background-color: #f0c24c;
+}
+.home-billboard .dot.active {
+  width: 2rem;
+  border-radius: 999px;
+  border-color: #e3a804;
+  background-color: #e3a804;
+}
 @media (max-width: 768px) {
   .overlay-text h1 {
     font-size: 2rem;
   }
   .overlay-text p {
     font-size: 1rem;
+  }
+  .home-billboard {
+    height: 42rem;
+  }
+  .home-billboard .slide img {
+    height: 42rem;
   }
 }
 @media (max-width: 656px) {

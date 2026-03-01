@@ -1,10 +1,19 @@
 (function () {
   let currentSlideIndex = 1;
-  const slides = Array.from(document.querySelectorAll(".slide"));
-  const dots = Array.from(document.querySelectorAll(".dot"));
+  let slides = [];
+  let dots = [];
+  let slider = null;
+  let autoSlideTimer = null;
+  let isInitialized = false;
+
+  function cacheSliderElements() {
+    slides = Array.from(document.querySelectorAll(".home-billboard .slide"));
+    dots = Array.from(document.querySelectorAll(".home-billboard .dot"));
+    slider = document.querySelector(".home-billboard .slideshow-container");
+  }
 
   function showSlides(slideNumber) {
-    if (slides.length === 0 || dots.length === 0) {
+    if (slides.length === 0) {
       return;
     }
 
@@ -18,13 +27,13 @@
 
     slides.forEach((slide, index) => {
       slide.style.opacity = "0";
-      if (dots[index]) {
+      if (dots.length > 0 && dots[index]) {
         dots[index].classList.remove("active");
       }
     });
 
     const activeSlide = slides[currentSlideIndex - 1];
-    const activeDot = dots[currentSlideIndex - 1];
+    const activeDot = dots.length > 0 ? dots[currentSlideIndex - 1] : null;
 
     if (activeSlide) {
       activeSlide.style.opacity = "1";
@@ -34,7 +43,6 @@
       activeDot.classList.add("active");
     }
 
-    const slider = document.querySelector(".slideshow-container");
     if (slider) {
       slider.style.transform = `translateX(-${(currentSlideIndex - 1) * 100}%)`;
     }
@@ -46,12 +54,19 @@
   }
 
   function setupSlideshow() {
-    if (slides.length === 0 || dots.length === 0) {
+    cacheSliderElements();
+
+    if (slides.length === 0) {
       return;
     }
 
+    if (autoSlideTimer) {
+      window.clearInterval(autoSlideTimer);
+    }
+
     showSlides(currentSlideIndex);
-    setInterval(() => {
+
+    autoSlideTimer = window.setInterval(() => {
       currentSlideIndex += 1;
       showSlides(currentSlideIndex);
     }, 5000);
@@ -116,12 +131,23 @@
     });
   }
 
-  window.currentSlide = moveToSlide;
+  function initHomePageScripts() {
+    if (isInitialized) {
+      return;
+    }
 
-  window.addEventListener("DOMContentLoaded", () => {
+    isInitialized = true;
     highlightActiveLink();
     setupSlideshow();
     setupBackToTop();
     setupContactButton();
-  });
+  }
+
+  window.currentSlide = moveToSlide;
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initHomePageScripts);
+  } else {
+    initHomePageScripts();
+  }
 })();
