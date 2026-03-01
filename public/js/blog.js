@@ -32,6 +32,57 @@
     });
   }
 
+  function getBlogPosts() {
+    if (Array.isArray(window.cultureHillBlogPosts)) {
+      return window.cultureHillBlogPosts;
+    }
+
+    return [
+      {
+        id: 1,
+        title: "Culture Hill Farm Update",
+        date: "January 15, 2025",
+        excerpt:
+          "Read practical updates from Culture Hill on organic farming and healthy food production.",
+      },
+    ];
+  }
+
+  function populateBlogCards(cards, posts) {
+    cards.forEach((card, index) => {
+      const post = posts[index];
+      if (!post) {
+        return;
+      }
+
+      const titleElement = card.querySelector(".blog-title");
+      const dateElement = card.querySelector(".blog-date");
+      const excerptElement = card.querySelector(".blog-excerpt");
+      const readMoreElement = card.querySelector(".read-more");
+      const imageElement = card.querySelector("img");
+
+      if (titleElement) {
+        titleElement.textContent = post.title;
+      }
+
+      if (dateElement) {
+        dateElement.textContent = `Posted on ${post.date}`;
+      }
+
+      if (excerptElement) {
+        excerptElement.textContent = post.excerpt;
+      }
+
+      if (readMoreElement) {
+        readMoreElement.href = `/blog/${post.id}`;
+      }
+
+      if (imageElement) {
+        imageElement.alt = post.title;
+      }
+    });
+  }
+
   function closeAllShareMenus() {
     document.querySelectorAll(".share-options").forEach((menu) => {
       menu.style.display = "none";
@@ -60,9 +111,13 @@
       const title = (card.querySelector(".blog-title")?.textContent || "")
         .trim()
         .toLowerCase();
+      const excerpt = (card.querySelector(".blog-excerpt")?.textContent || "")
+        .trim()
+        .toLowerCase();
 
       const categoryMatch = category === "all" || cardCategory === category;
-      const searchMatch = title.includes(searchTerm);
+      const searchMatch =
+        title.includes(searchTerm) || excerpt.includes(searchTerm);
 
       card.style.display = categoryMatch && searchMatch ? "block" : "none";
     });
@@ -78,6 +133,9 @@
     const searchBar = document.getElementById("search-bar");
     const searchButton = document.getElementById("search-btn");
     const searchCloseButton = document.getElementById("close-btn");
+    const blogPosts = getBlogPosts();
+
+    populateBlogCards(cards, blogPosts);
 
     let selectedCategory = "all";
     let searchTerm = "";

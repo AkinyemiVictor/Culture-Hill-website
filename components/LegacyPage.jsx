@@ -1,6 +1,6 @@
 import Script from "next/script";
 
-const ASSET_VERSION = "20260301";
+const ASSET_VERSION = "20260301-4";
 
 export default function LegacyPage({ markup, stylesheets = [], scripts = [] }) {
   const withVersion = (url) =>
