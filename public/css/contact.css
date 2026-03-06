@@ -934,3 +934,122 @@ footer {
     justify-content: center;
   }
 }
+
+/* Responsive hardening */
+@media (max-width: 900px) {
+  body #filler #socialsSearch {
+    padding: 0.75rem 1rem !important;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
+  body #filler #socialsSearch #b {
+    width: 100%;
+  }
+
+  body #filler #socialsSearch #c {
+    width: 100% !important;
+    margin: 0 !important;
+    justify-content: flex-start;
+  }
+
+  body .filler #socialsSearch #c #x,
+  body .filler #socialsSearch #c #instagram,
+  body .filler #socialsSearch #c #facebook,
+  body .filler #socialsSearch #c #linkedin {
+    margin: 0 0.75rem 0 0;
+  }
+
+  body header #margin {
+    padding: 0.75rem 1rem !important;
+  }
+}
+
+@media (max-width: 986px) {
+  .contact-section {
+    margin-top: 140px;
+  }
+
+  .holder-1 {
+    margin-top: 4rem;
+    padding: 0 1rem;
+  }
+
+  .cont-1,
+  .cont-2 {
+    width: 100% !important;
+    max-width: 680px;
+    margin: 0 !important;
+  }
+
+  .cont-1 {
+    height: auto;
+    padding: 2rem 1.5rem;
+  }
+
+  .cont-1 .h2,
+  .sub-cont-1,
+  .sub-cont-2 {
+    margin: 0 !important;
+  }
+
+  .cont-2 {
+    height: auto;
+  }
+
+  .sub-cont-3 {
+    padding: 1.5rem !important;
+  }
+
+  .cont-2 form input,
+  .cont-2 form textarea,
+  .cont-2 form button {
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  .map {
+    padding: 0 1rem;
+  }
+
+  iframe {
+    width: 100% !important;
+    max-width: 100%;
+    margin: 0 !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .contact-section .socials {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .footer-container {
+    gap: 2rem;
+  }
+
+  .footer-container .sec-1,
+  .footer-container .footer-links,
+  .footer-container .contact-form {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 !important;
+    flex: 1 1 100%;
+  }
+
+  .footer-container .footer-links {
+    align-items: center;
+  }
+
+  .contact-details {
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  footer {
+    padding: 2.5rem 1rem;
+  }
+}

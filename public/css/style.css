@@ -816,71 +816,74 @@ body header #margin #logo #logoText h1 {
 }
 .best-selling {
   width: 100%;
-  height: auto;
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 .best-selling .content {
   max-width: 1400px;
-  height: auto;
+  width: 100%;
   padding: 1.5rem;
-  margin-top: 0;
-  margin-bottom: 2rem;
+  margin: 0 0 2rem;
   text-align: center;
 }
 .best-selling .content h1 {
-  margin-bottom: 30px;
+  margin-bottom: 1.5rem;
   margin-top: 0;
   color: #117938;
   font-size: 2.5rem;
 }
 .best-selling .content h5 {
-  margin-bottom: 45px;
+  margin-bottom: 1.25rem;
   margin-top: 2rem;
   color: #6a3f2c;
   font-size: 1rem;
 }
 .best-selling .holder {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 90px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: stretch;
+  gap: 1.5rem;
   width: 100%;
-  margin-top: 4rem;
-  margin-bottom: 6rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
 }
-.card {
-  width: 400px;
-  height: 440px;
+.best-selling .card {
+  width: 100%;
+  min-height: 430px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   text-align: center;
   border-radius: 8px;
   border: 1px solid #ddd;
   overflow: hidden;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background: #fff;
 }
-.card div {
-  padding: 20px 20px 0 20px;
+.best-selling .card div {
+  padding: 1rem 1.1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
-.card img {
+.best-selling .card img {
   width: 100%;
-  height: 260px;
+  height: 240px;
   object-fit: cover;
   aspect-ratio: 16 / 9;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 }
-.card h4 {
+.best-selling .card h4 {
   margin-top: 10px;
+  margin-bottom: 0.8rem;
 }
-.card h3 {
+.best-selling .card p {
+  margin: 0;
+  line-height: 1.5;
+}
+.best-selling .card h3 {
   color: green;
-  margin-top: 10px;
-  margin-bottom: 0;
+  margin: auto 0 0;
 }
 button {
   padding: 12px 30px;
@@ -898,104 +901,27 @@ button {
 button:hover {
   animation: bounce 1s infinite;
 }
-@media (max-width: 1434px) {
-  .card {
-    width: 380px;
-    height: 480px;
+@media (max-width: 720px) {
+  .best-selling .content {
+    padding: 1rem;
   }
-  .card img {
-    width: 100%;
-    height: 280px;
+  .best-selling .content h1 {
+    font-size: 2rem;
   }
 }
-@media (max-width: 1373px) {
+@media (max-width: 620px) {
   .best-selling .holder {
-    gap: 45px;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
   }
-  .card {
-    width: 360px;
-    height: 480px;
+  .best-selling .card {
+    min-height: 0;
   }
-  .card img {
-    width: 100%;
-    height: 280px;
+  .best-selling .card img {
+    height: 220px;
   }
-}
-@media (max-width: 1223px) {
-  .best-selling .holder {
-    gap: 30px;
-  }
-  .card {
-    width: 350px;
-    height: 480px;
-  }
-  .card img {
-    width: 100%;
-    height: 280px;
-  }
-}
-@media (max-width: 1163px) {
-  .best-selling .holder {
-    gap: 60px;
-  }
-  .card {
-    width: 400px;
-    height: 460px;
-  }
-  .card img {
-    width: 100%;
-    height: 280px;
-  }
-}
-@media (max-width: 911px) {
-  .best-selling .holder {
-  }
-  .card {
-    width: 350px;
-    height: 480px;
-  }
-}
-@media (max-width: 811px) {
-  .best-selling .holder {
-    gap: 30px;
-  }
-  .card {
-    width: 325px;
-    height: 500px;
-  }
-  .card img {
-    width: 100%;
-    height: 300px;
-  }
-}
-@media (max-width: 731px) {
-  .best-selling .holder {
-    gap: 50px;
-  }
-  .card {
-    width: 400px;
-    height: 480px;
-  }
-  .card img {
-    width: 100%;
-    height: 300px;
-  }
-}
-@media (max-width: 435px) {
-  .card {
-    width: 360px;
-    height: 480px;
-  }
-}
-@media (max-width: 395px) {
-  .best-selling .holder {
-    gap: 25px;
-  }
-  .card {
-    width: 350px;
-    height: 500px;
-  }
-  
 }
 .con-2 {
   display: grid;
@@ -1007,11 +933,6 @@ button:hover {
 .con-2 .info-3 {
   padding: 15px;
   border: none;
-}
-@media (max-width: 768px) {
-  .best-selling .holder {
-    grid-template-columns: auto;
-  }
 }
 .about {
   display: flex;
@@ -1278,7 +1199,7 @@ button:hover {
 }
 .blog-2 img {
   width: 100%;
-  height: ;
+  height: auto;
   border-radius: 8px;
 }
 .blog-3 img {
@@ -1666,5 +1587,111 @@ footer {
   .footer-links a {
     text-align: center;
     justify-content: center;
+  }
+}
+
+/* Responsive hardening */
+.team .space,
+.blogSection .room {
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  body #filler #socialsSearch {
+    padding: 0.75rem 1rem !important;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
+  body #filler #socialsSearch #b {
+    width: 100%;
+  }
+
+  body #filler #socialsSearch #c {
+    width: 100% !important;
+    margin: 0 !important;
+    justify-content: flex-start;
+  }
+
+  body .filler #socialsSearch #c #x,
+  body .filler #socialsSearch #c #instagram,
+  body .filler #socialsSearch #c #facebook,
+  body .filler #socialsSearch #c #linkedin {
+    margin: 0 0.75rem 0 0;
+  }
+
+  body header #margin {
+    padding: 0.75rem 1rem !important;
+  }
+
+  .about .gap .img-div {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .about .gap .img-div img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 32rem;
+  }
+}
+
+@media (max-width: 620px) {
+  body .filler #socialsSearch #b span {
+    margin: 0.25rem 0;
+  }
+
+  .blogSection .room {
+    margin-top: 4rem;
+  }
+
+  .blogSection .room .cat {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .blogSection .room .cat .other {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .footer-container {
+    gap: 2rem;
+  }
+
+  .footer-container .sec-1,
+  .footer-container .footer-links,
+  .footer-container .contact-form {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 !important;
+    flex: 1 1 100%;
+  }
+
+  .footer-container .footer-links {
+    align-items: center;
+  }
+
+  .contact-details {
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  footer {
+    padding: 2.5rem 1rem;
+  }
+
+  .backToTop {
+    right: 1rem;
+    bottom: 1rem;
+    width: 44px;
+    height: 44px;
+  }
+
+  .backToTopIcon {
+    width: 32px;
+    height: 32px;
   }
 }
