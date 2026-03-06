@@ -362,7 +362,7 @@ body header #margin #logo #logoText h1 {
 }
 @media (max-width: 539px) {
   body header #margin {
-    padding: 0.75re 0.5rem o.75rem 0.5rem;
+    padding: 0.75rem 0.5rem 0.75rem 0.5rem;
   }
 }
 @media (max-width: 456px) {
@@ -1693,5 +1693,128 @@ footer {
   .backToTopIcon {
     width: 32px;
     height: 32px;
+  }
+}
+
+/* Spacing standardization */
+body #filler #socialsSearch {
+  padding: var(--space-sm) var(--page-gutter);
+}
+
+body header #margin {
+  padding: var(--space-sm) var(--page-gutter);
+}
+
+#navigate a {
+  padding: var(--space-md);
+}
+
+.contact-btn .btn {
+  margin-left: var(--space-2xl);
+}
+button {
+  padding: var(--button-padding);
+}
+
+.best-selling .content,
+.about .gap,
+.team .space,
+.blogSection .room {
+  padding: var(--space-lg);
+}
+
+.about .gap {
+  gap: var(--space-xl);
+}
+
+.best-selling .holder,
+.team .space .team-members,
+.blogSection .room .cat,
+.blogSection .room .cat .other {
+  gap: var(--card-gap);
+}
+
+.about .gap .con-1,
+.about .gap .img-div,
+.about .gap .con-2,
+.team,
+.blogSection .room {
+  margin-top: var(--section-space-sm);
+}
+
+.best-selling .content h5,
+.team h5,
+.blogSection h5,
+.about .gap .con-1 h5 {
+  margin-bottom: var(--space-md);
+}
+
+.best-selling .content h1,
+.team h1,
+.blogSection h1,
+.about .gap .con-1 h1 {
+  margin-bottom: var(--space-lg);
+}
+
+.best-selling .holder,
+.team .space .team-members {
+  margin-top: var(--space-2xl);
+}
+
+.footer-container .sec-1 .logo {
+  margin-bottom: var(--space-2xl);
+}
+
+.footer-container {
+  margin-bottom: var(--space-2xl);
+  gap: var(--space-xl);
+}
+
+.footer-links {
+  margin-top: var(--space-md);
+}
+
+.footer-links a {
+  margin-bottom: var(--space-md);
+}
+
+.contact-form h3 {
+  margin-bottom: var(--space-md);
+}
+
+footer {
+  padding: var(--space-2xl) var(--page-gutter);
+  margin-top: var(--section-space);
+}
+
+.footer-bottom {
+  padding: var(--space-xl) 0;
+}
+
+.social-icon {
+  margin: 0 var(--space-md);
+}
+
+@media (max-width: 900px) {
+  .contact-btn .btn {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 620px) {
+  footer {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .footer-container {
+    gap: var(--space-2xl);
+  }
+}
+@media (max-width: 620px) {
+  .best-selling .content,
+  .about .gap,
+  .team .space,
+  .blogSection .room {
+    padding: var(--space-md);
   }
 }

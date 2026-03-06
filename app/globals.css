@@ -4,6 +4,23 @@
   box-sizing: border-box;
 }
 
+:root {
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+  --page-gutter: clamp(1rem, 4vw, 6rem);
+  --section-space: clamp(3rem, 7vw, 6rem);
+  --section-space-sm: clamp(2rem, 5vw, 4rem);
+  --card-gap: clamp(1rem, 2.5vw, 1.5rem);
+  --button-padding: var(--space-sm) 1.875rem;
+}
+
 html,
 body {
   margin: 0;
